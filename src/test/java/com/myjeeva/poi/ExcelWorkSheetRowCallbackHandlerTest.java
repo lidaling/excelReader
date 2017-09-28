@@ -66,7 +66,8 @@ public class ExcelWorkSheetRowCallbackHandlerTest {
 
   public static void main(String[] args) throws Exception {
 
-    String SAMPLE_PERSON_DATA_FILE_PATH = "src/test/resources/Sample-Person-Data.xlsx";
+//    String SAMPLE_PERSON_DATA_FILE_PATH = "src/test/resources/Sample-Person-Data.xlsx";
+    String SAMPLE_PERSON_DATA_FILE_PATH = "/Users/lidl/tmp/test/000.xlsx";
 
     File file = new File(SAMPLE_PERSON_DATA_FILE_PATH);
     InputStream inputStream = new FileInputStream(file);

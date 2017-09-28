@@ -28,6 +28,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.poi.xssf.eventusermodel.XSSFSheetXMLHandler.SheetContentsHandler;
+import org.apache.poi.xssf.usermodel.XSSFComment;
 
 /**
  * <p>
@@ -104,10 +105,10 @@ public class ExcelWorkSheetRowCallbackHandler implements SheetContentsHandler {
 
   /**
    * @see org.apache.poi.xssf.eventusermodel.XSSFSheetXMLHandler.SheetContentsHandler#cell(java.lang.String,
-   *      java.lang.String)
+   *      java.lang.String,XSSFComment)
    */
   @Override
-  public void cell(String cellReference, String formattedValue) {
+  public void cell(String cellReference, String formattedValue, XSSFComment xssfComment) {
 
     // Note, POI will not invoke this method if the cell
     // is blank or if it detects there's no more data in the row.
@@ -125,10 +126,10 @@ public class ExcelWorkSheetRowCallbackHandler implements SheetContentsHandler {
   }
 
   /**
-   * @see org.apache.poi.xssf.eventusermodel.XSSFSheetXMLHandler.SheetContentsHandler#endRow()
+   * @see org.apache.poi.xssf.eventusermodel.XSSFSheetXMLHandler.SheetContentsHandler#endRow(int)
    */
   @Override
-  public void endRow() {
+  public void endRow(int rowNum) {
 
     if (this.currentRow > HEADER_ROW) {
       try {

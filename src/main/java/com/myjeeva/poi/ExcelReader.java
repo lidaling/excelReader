@@ -198,7 +198,7 @@ public class ExcelReader {
     XMLReader sheetParser = saxFactory.newSAXParser().getXMLReader();
 
     ContentHandler handler =
-        new XSSFSheetXMLHandler(styles, sharedStringsTable, sheetContentsHandler, true);
+        new XSSFSheetXMLHandler(styles, sharedStringsTable, sheetContentsHandler, false);
 
     sheetParser.setContentHandler(handler);
     sheetParser.parse(new InputSource(sheetInputStream));

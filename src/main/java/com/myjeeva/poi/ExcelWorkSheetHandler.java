@@ -32,6 +32,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.poi.xssf.eventusermodel.XSSFSheetXMLHandler.SheetContentsHandler;
+import org.apache.poi.xssf.usermodel.XSSFComment;
 
 /**
  * Generic Excel WorkSheet handler
@@ -144,7 +145,7 @@ public class ExcelWorkSheetHandler<T> implements SheetContentsHandler {
    *      java.lang.String)
    */
   @Override
-  public void cell(String cellReference, String formattedValue) {
+  public void cell(String cellReference, String formattedValue, XSSFComment xssfComment) {
 
     if (currentRow >= skipRows) {
       if (StringUtils.isBlank(formattedValue)) {
@@ -160,10 +161,10 @@ public class ExcelWorkSheetHandler<T> implements SheetContentsHandler {
   }
 
   /**
-   * @see org.apache.poi.xssf.eventusermodel.XSSFSheetXMLHandler.SheetContentsHandler#endRow()
+   * @see org.apache.poi.xssf.eventusermodel.XSSFSheetXMLHandler.SheetContentsHandler
    */
   @Override
-  public void endRow() {
+  public void endRow(int rowNum) {
     if (HEADER_ROW == currentRow && verifiyHeader && null != objHeader) {
       if (!checkHeaderValues(objHeader)) {
         throw new RuntimeException("Header values doesn't match, so invalid Excel file!");

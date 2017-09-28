@@ -45,6 +45,7 @@
     <properties>
 		<javadoc.output.basepath>${basedir}/javadoc/docs</javadoc.output.basepath>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<poi.version>3.17</poi.version>
 	</properties>
 
 	<!-- Dependencies -->
@@ -52,12 +53,12 @@
     	<dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
-            <version>3.9</version> 
+            <version>${poi.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
-            <version>3.9</version>
+            <version>${poi.version}</version>
         </dependency>
 	<dependency>
             <groupId>commons-logging</groupId>
